@@ -46,7 +46,7 @@ def view_patient(patient_id:str = Path(...,description= 'ID of the patient in th
 def sort_patients(sort_by : str =Query(...,description= "Sort on the basisof height,weight or bmi"),order: str = Query( 'asc',description= 'sort in asc or desc order ')):
     valid_fields = ['height','weight','bmi']
 
-    if sort_by not in valid_field:
+    if sort_by not in valid_fields:
         raise HTTPException(status_code = 400 , detail =f'Invalid filed select from {valid_fields}')
     
     if order not in ['asc','desc']:
